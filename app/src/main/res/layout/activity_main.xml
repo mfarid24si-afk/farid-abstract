@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kalkulator Bangun"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/etAlas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Alas"
+        android:inputType="numberDecimal"/>
+
+    <EditText
+        android:id="@+id/etTinggi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tinggi"
+        android:inputType="numberDecimal"/>
+
+    <Button
+        android:id="@+id/btnSegitiga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hitung Segitiga"/>
+
+    <EditText
+        android:id="@+id/etSisi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Sisi Kubus"
+        android:inputType="numberDecimal"/>
+
+    <Button
+        android:id="@+id/btnKubus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hitung Kubus"/>
+
+    <TextView
+        android:id="@+id/tvHasil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hasil:"/>
+
+</LinearLayout>
