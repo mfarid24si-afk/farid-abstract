@@ -3,52 +3,83 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="#0F172A"
+    android:padding="20dp">
 
     <TextView
         android:id="@+id/tvTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Kalkulator Bangun"
-        android:textSize="20sp"/>
+        android:text="Kalkulator Bangun Datar"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"/>
 
     <EditText
         android:id="@+id/etAlas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Alas"
+        android:hint="Masukkan Alas"
+        android:padding="12dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#94A3B8"
+        android:background="#1E293B"
+        android:layout_marginBottom="12dp"
         android:inputType="numberDecimal"/>
 
     <EditText
         android:id="@+id/etTinggi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Tinggi"
+        android:hint="Masukkan Tinggi"
+        android:padding="12dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#94A3B8"
+        android:background="#1E293B"
+        android:layout_marginBottom="16dp"
         android:inputType="numberDecimal"/>
 
     <Button
         android:id="@+id/btnSegitiga"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hitung Segitiga"/>
+        android:text="Hitung Segitiga"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#3B82F6"
+        android:layout_marginBottom="20dp"/>
 
     <EditText
         android:id="@+id/etSisi"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Sisi Kubus"
+        android:hint="Masukkan Sisi Kubus"
+        android:padding="12dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#94A3B8"
+        android:background="#1E293B"
+        android:layout_marginBottom="16dp"
         android:inputType="numberDecimal"/>
 
     <Button
         android:id="@+id/btnKubus"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hitung Kubus"/>
+        android:text="Hitung Kubus"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#10B981"
+        android:layout_marginBottom="20dp"/>
 
     <TextView
         android:id="@+id/tvHasil"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hasil:"/>
+        android:text="Hasil:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="#1E293B"
+        android:padding="16dp"/>
 
 </LinearLayout>

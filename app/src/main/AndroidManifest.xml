@@ -12,14 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Faridabstract">
         <activity
-            android:name=".MainActivity"
+            android:name="Tugas_p4.WelcomeActivity"
+            android:exported="false" />
+        <!-- LoginActivity sekarang menjadi halaman pertama (Launcher) -->
+        <activity
+            android:name="Tugas_p4.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity> <!-- MainActivity sekarang menjadi halaman biasa -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"></activity>
     </application>
 
 </manifest>
