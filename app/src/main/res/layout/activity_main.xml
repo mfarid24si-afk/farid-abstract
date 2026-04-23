@@ -1,85 +1,102 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0F172A"
-    android:padding="20dp">
+    android:background="#FFFFFF"
+    android:padding="24dp"
+    tools:context=".MainActivity">
+
+    <!-- Header Dashboard -->
+    <TextView
+        android:id="@+id/tvJudul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Dashboard 👋"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/tvDeskripsi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pilih menu navigasi di bawah ini"
+        android:textSize="16sp"
+        android:textColor="#9E9E9E"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvJudul"/>
+
+    <!-- Grid Menu Section -->
+    <LinearLayout
+        android:id="@+id/menuGrid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Kalkulator Bangun Datar"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:gravity="center"
-        android:layout_marginBottom="20dp"/>
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/tvDeskripsi">
 
-    <EditText
-        android:id="@+id/etAlas"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Masukkan Alas"
-        android:padding="12dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#94A3B8"
-        android:background="#1E293B"
-        android:layout_marginBottom="12dp"
-        android:inputType="numberDecimal"/>
+        <!-- Baris 1: Rumus -->
+        <Button
+            android:id="@+id/btnRumus"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:backgroundTint="#4B0082"
+            android:text="Rumus Bangun\nDatar &amp; Ruang"
+            android:textAllCaps="false"
+            android:textSize="16sp"
+            app:cornerRadius="16dp" />
 
-    <EditText
-        android:id="@+id/etTinggi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Masukkan Tinggi"
-        android:padding="12dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#94A3B8"
-        android:background="#1E293B"
-        android:layout_marginBottom="16dp"
-        android:inputType="numberDecimal"/>
+        <!-- Baris 2: About & Info (Bersebelahan agar lebih seperti Dashboard) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
 
+            <Button
+                android:id="@+id/btnCustom1"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="About Us"
+                android:textAllCaps="false"
+                android:textColor="#4B0082"
+                app:cornerRadius="16dp"
+                app:strokeColor="#4B0082" />
+
+            <Button
+                android:id="@+id/btnCustom2"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                android:text="Information"
+                android:textAllCaps="false"
+                android:textColor="#4B0082"
+                app:cornerRadius="16dp"
+                app:strokeColor="#4B0082" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Logout Button: Diletakkan di bawah dengan warna berbeda -->
     <Button
-        android:id="@+id/btnSegitiga"
+        android:id="@+id/btnLogout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hitung Segitiga"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#3B82F6"
-        android:layout_marginBottom="20dp"/>
-
-    <EditText
-        android:id="@+id/etSisi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Masukkan Sisi Kubus"
-        android:padding="12dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#94A3B8"
-        android:background="#1E293B"
+        android:layout_height="55dp"
         android:layout_marginBottom="16dp"
-        android:inputType="numberDecimal"/>
+        android:backgroundTint="#F44336"
+        android:text="Logout"
+        android:textAllCaps="false"
+        app:cornerRadius="12dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-    <Button
-        android:id="@+id/btnKubus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hitung Kubus"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#10B981"
-        android:layout_marginBottom="20dp"/>
-
-    <TextView
-        android:id="@+id/tvHasil"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hasil:"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:background="#1E293B"
-        android:padding="16dp"/>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

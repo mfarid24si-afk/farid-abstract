@@ -1,0 +1,108 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_git"
+    android:padding="20dp">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/text_input"
+        android:titleTextColor="@android:color/black"/>
+
+    <TextView
+        android:id="@+id/tvJudul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Judul"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/bg_git"/>
+
+    <TextView
+        android:id="@+id/tvDeskripsi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Deskripsi"
+        android:textSize="14sp"
+        android:textColor="@color/bg_git"/>
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kalkulator Bangun Datar"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/bg_git"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:id="@+id/etAlas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Alas"
+        android:padding="12dp"
+        android:textColor="@color/text_input"
+        android:textColorHint="@color/text_hint"
+        android:background="@color/bg_text"
+        android:layout_marginBottom="12dp"
+        android:inputType="numberDecimal"/>
+
+    <EditText
+        android:id="@+id/etTinggi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Tinggi"
+        android:padding="12dp"
+        android:textColor="@color/text_input"
+        android:textColorHint="@color/text_hint"
+        android:background="@color/bg_text"
+        android:layout_marginBottom="16dp"
+        android:inputType="numberDecimal"/>
+
+    <Button
+        android:id="@+id/btnSegitiga"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hitung Segitiga"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/bg_primary"
+        android:layout_marginBottom="20dp"/>
+
+    <EditText
+        android:id="@+id/etSisi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan Sisi Kubus"
+        android:padding="12dp"
+        android:textColor="@color/text_input"
+        android:textColorHint="@color/text_hint"
+        android:background="@color/bg_text"
+        android:layout_marginBottom="16dp"
+        android:inputType="numberDecimal"/>
+
+    <Button
+        android:id="@+id/btnKubus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hitung Kubus"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/bg_primary"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:id="@+id/tvHasil"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hasil:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_hasil"
+        android:background="@color/bg_hasil"
+        android:padding="16dp"/>
+
+</LinearLayout>

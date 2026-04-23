@@ -12,9 +12,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Faridabstract">
         <activity
-            android:name="Tugas_p4.WelcomeActivity"
+            android:name=".Custom2Activity"
             android:exported="false" />
-        <!-- LoginActivity sekarang menjadi halaman pertama (Launcher) -->
+        <activity
+            android:name=".Custom1Activity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name="Tugas_p4.WelcomeActivity"
+            android:exported="false" /> <!-- LoginActivity sekarang menjadi halaman pertama (Launcher) -->
         <activity
             android:name="Tugas_p4.LoginActivity"
             android:exported="true">
@@ -25,8 +33,8 @@
             </intent-filter>
         </activity> <!-- MainActivity sekarang menjadi halaman biasa -->
         <activity
-            android:name=".MainActivity"
-            android:exported="false"></activity>
+            android:name=".RumusActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

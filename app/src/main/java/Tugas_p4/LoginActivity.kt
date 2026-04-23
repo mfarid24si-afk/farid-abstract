@@ -2,13 +2,11 @@ package Tugas_p4
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.farid_abstract.R
 import com.example.farid_abstract.databinding.ActivityLoginBinding
 import android.content.Intent
+import com.example.farid_abstract.MainActivity
+import com.example.farid_abstract.RumusActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -24,7 +22,8 @@ class LoginActivity : AppCompatActivity() {
             val email = binding.etEmail.text.toString()
 
             if (email.isNotEmpty()) {
-                val intent = Intent(this, WelcomeActivity::class.java)
+                val intent = Intent(this, MainActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                 intent.putExtra("EMAIL", email)
                 startActivity(intent)
             } else {
