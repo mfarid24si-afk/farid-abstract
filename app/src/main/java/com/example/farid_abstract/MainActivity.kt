@@ -1,12 +1,11 @@
 package com.example.farid_abstract
 
-import Tugas_p4.LoginActivity
+import com.example.farid_abstract.Tugas_p4.LoginActivity
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.example.farid_abstract.Customer.Custom1Activity
+import com.example.farid_abstract.Customer.Custom2Activity
 import com.example.farid_abstract.databinding.ActivityMainBinding
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar

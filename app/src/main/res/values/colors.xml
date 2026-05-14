@@ -9,4 +9,10 @@
     <color name="text_hint">#94A3B8</color>
     <color name="text_input">#1E293B </color>
     <color name="text_hasil">#4B0082 </color>
+    <color name="sidebar_purple">#3F3D56</color> <!-- Warna Sidebar -->
+    <color name="card_green">#00C091</color>    <!-- Card Impressions -->
+    <color name="card_blue">#00B4D8</color>     <!-- Card Traffic -->
+    <color name="bg_gray">#F4F7FE</color>       <!-- Background Dashboard -->
+
+
 </resources>

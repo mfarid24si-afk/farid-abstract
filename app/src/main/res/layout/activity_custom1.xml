@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".Custom1Activity">
+    tools:context=".Customer.Custom1Activity">
 
     <!-- Toolbar: Diubah warnanya jadi putih agar menyatu dengan background (clean look) -->
     <com.google.android.material.appbar.MaterialToolbar

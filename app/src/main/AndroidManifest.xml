@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -10,21 +11,32 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Faridabstract">
+        android:theme="@style/Theme.Faridabstract"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
         <activity
-            android:name=".Custom2Activity"
+            android:name=".AuthActivity"
             android:exported="false" />
         <activity
-            android:name=".Custom1Activity"
+            android:name=".BinaDesa.WebViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Tugas_p4.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Customer.Custom2Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Customer.Custom1Activity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name="Tugas_p4.WelcomeActivity"
+            android:name=".Tugas_p4.WelcomeActivity"
             android:exported="false" /> <!-- LoginActivity sekarang menjadi halaman pertama (Launcher) -->
         <activity
-            android:name="Tugas_p4.LoginActivity"
+            android:name=".SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
