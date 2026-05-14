@@ -8,56 +8,33 @@
     android:background="#F8F9FA"
     tools:context=".BinaDesa.WebViewActivity">
 
-    <!-- TOOLBAR ATAS -->
-    <!-- TOOLBAR UTAMA -->
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="#3F3D56"
+        android:background="#7F00FF"
         app:titleTextColor="@android:color/white"
         app:navigationIconTint="@android:color/white"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- JALUR CONTAINER TOMBOL AKSI -->
-    <LinearLayout
-        android:id="@+id/actionLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
-
-        <!-- TOMBOL PEMICU KODE WEBVIEW -->
-        <Button
-            android:id="@+id/btnWebView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginEnd="4dp"
-            android:backgroundTint="#7F00FF"
-            android:text="Buka Web"
-            android:textColor="@android:color/white" />
-
-        <!-- TOMBOL KELUAR AKUN (LOGOUT) -->
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_marginStart="4dp"
-            android:backgroundTint="#D32F2F"
-            android:text="Logout"
-            android:textColor="@android:color/white" />
-    </LinearLayout>
-
-    <!-- KONTAINER INDUK WEBVIEW -->
-    <WebView
-        android:id="@+id/webView"
+    <!-- WADAH KOSONG TEMPAT FRAGMENT BERGANTI (FRAME LAYOUT) -->
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/actionLayout"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- BAR NAVIGASI BAWAH (BOTTOM NAVIGATION) -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:elevation="8dp"
+        app:menu="@menu/bottom_nav_menu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

@@ -4,11 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import android.webkit.WebViewClient
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 import com.example.farid_abstract.AuthActivity
 import com.example.farid_abstract.R
 import com.example.farid_abstract.databinding.ActivityWebViewBinding
@@ -18,12 +18,11 @@ class WebViewActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
 
         binding = ActivityWebViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // 1. SETUP KOMPONEN BAR NAVIGASI TOOLBAR
+        // SETUP TOOLBAR
         setSupportActionBar(binding.toolbar)
         supportActionBar?.apply {
             title = "Portal Bina Desa"
@@ -31,42 +30,48 @@ class WebViewActivity : AppCompatActivity() {
             setDisplayShowHomeEnabled(true)
         }
 
-        binding.toolbar.navigationIcon?.setTint(resources.getColor(android.R.color.white, theme))
-
-        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        // ─── PINDAH KE SINI DAN PERIKSA BARIS INI ───
+        // PENTING: Jika aplikasi baru dibuka, baris ini wajib ada untuk memasukkan HomeFragment ke FrameLayout
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragmentContainer, HomeFragment())
+                .commit()
         }
 
-        // 2. KONFIGURASI ENGINE DASAR WEBVIEW (STANDBY)
-        binding.webView.apply {
-            settings.javaScriptEnabled = true
-            settings.domStorageEnabled = true
-            webViewClient = WebViewClient()
-        }
-
-        // 3. AKSES MEMUAT LINK KETIKA TOMBOL DIKLIK
-        binding.btnWebView.setOnClickListener {
-            binding.webView.loadUrl("http://farid-peminjaman.alwaysdata.net/login")
-        }
-
-        // 4. PROSES CLEAR DATA SHAREDPREFERENCES SAAT LOGOUT
-        binding.btnLogout.setOnClickListener {
-            val sharedPref = getSharedPreferences("UserSession", Context.MODE_PRIVATE)
-            val editor = sharedPref.edit()
-            editor.putBoolean("isLogin", false)
-            editor.apply()
-
-            // Arahkan kembali pengguna ke AuthActivity / LoginActivity Anda
-            val intent = Intent(this, AuthActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
-            finish()
+        // LOGIKA DIKLIK UNTUK BOTTOM NAVIGATION
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            var selectedFragment: Fragment? = null
+            when (item.itemId) {
+                R.id.nav_home -> {
+                    supportActionBar?.title = "Portal Bina Desa"
+                    selectedFragment = HomeFragment()
+                }
+                R.id.nav_about -> {
+                    supportActionBar?.title = "About Bina Desa"
+                    selectedFragment = AboutFragment()
+                }
+                R.id.nav_profile -> {
+                    supportActionBar?.title = "Developer Profile"
+                    selectedFragment = ProfileFragment()
+                }
+            }
+            if (selectedFragment != null) {
+                supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainer, selectedFragment)
+                    .commit()
+            }
+            true
         }
     }
 
-    // 5. PENANGANAN KLIK PANAH BACK AGAR KEMBALI KE ACTIVITY SEBELUMNYA
+
+    // FUNGSI TRANSAKSI UNTUK MENIMPA FRAGMENT KE DALAM FRAME LAYOUT
+    private fun loadFragment(fragment: Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainer, fragment)
+            .commit()
+    }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
             onBackPressedDispatcher.onBackPressed()

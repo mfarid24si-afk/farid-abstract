@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#F8F9FA"
+    android:gravity="center_horizontal"
+    tools:context=".BinaDesa.AboutFragment">
+
+    <!-- JUDUL TOPIK BINA DESA -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        android:text="Peminjaman Fasilitas Desa"
+        android:textColor="#3F3D56"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- DEFINISI TOPIK -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:text="Bina Desa merupakan gerakan pengabdian masyarakat untuk memodernisasi tata kelola administrasi pedesaan. Aplikasi ini berfokus pada efisiensi peminjaman fasilitas bersama milik desa secara digital."
+        android:textColor="#666666"
+        android:textSize="16sp"
+        android:lineSpacingMultiplier="1.2" />
+
+    <!-- DAFTAR FITUR UTAMA -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fitur Utama Aplikasi:\n1. Otentikasi Sesi (SharedPreferences)\n2. Portal Integrasi Web Terpusat (WebView)\n3. Monitoring Real-time Aset Desa"
+        android:textColor="#7F00FF"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        android:lineSpacingMultiplier="1.3" />
+
+</LinearLayout>
