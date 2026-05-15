@@ -8,6 +8,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.farid_abstract.BinaDesa.EmailInputActivity
 import com.example.farid_abstract.BinaDesa.WebViewActivity
 import com.example.farid_abstract.databinding.ActivityAuthBinding
 
@@ -22,28 +23,21 @@ class AuthActivity : AppCompatActivity() {
 
         enableEdgeToEdge()
 
+        // 1. Aksi Tombol Login (Menggunakan View Binding)
         binding.btnLogin.setOnClickListener {
-            // 1. Ambil teks yang diketik user dari EditText XML Anda
-            // PENTING: Pastikan ID etUsername dan etPassword sudah sesuai dengan ID di activity_auth.xml Anda
             val usernameInput = binding.inputEmail.text.toString()
             val passwordInput = binding.inputPassword.text.toString()
 
-            // 2. LOGIKA PENYARING: Cek apakah inputan cocok dan tidak kosong
             if (usernameInput == passwordInput && usernameInput.isNotEmpty()) {
-
-                // Jika BENAR -> Simpan status masuk ke SharedPreferences
-                val sharedPref = getSharedPreferences("farid", Context.MODE_PRIVATE)
+                val sharedPref = getSharedPreferences("farid@gmail.com", Context.MODE_PRIVATE)
                 val editor = sharedPref.edit()
                 editor.putBoolean("isLogin", true)
-                editor.apply() // Kunci data sesi
+                editor.apply()
 
-                // Pindah ke halaman utama panel kontrol navigasi bawah
                 val intent = Intent(this, WebViewActivity::class.java)
                 startActivity(intent)
                 finish()
-
             } else {
-                // Jika SALAH -> Tampilkan kotak peringatan (AlertDialog) agar gagal masuk
                 AlertDialog.Builder(this)
                     .setTitle("Autentikasi Gagal")
                     .setMessage("Username dan Password tidak cocok atau kosong. Silakan coba lagi!")
@@ -52,13 +46,17 @@ class AuthActivity : AppCompatActivity() {
             }
         }
 
-        val mainView = findViewById<android.view.View>(R.id.main)
-        if (mainView != null) {
-            ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
-                val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-                insets
-            }
+        // 2. Perbaikan: Aksi Tombol Register Gmail (Menggunakan View Binding)
+        binding.btnRegisterGmail.setOnClickListener {
+            val intent = Intent(this, EmailInputActivity::class.java)
+            startActivity(intent)
+        }
+
+        // 3. Pengaturan Window Insets (Menggunakan View Binding)
+        ViewCompat.setOnApplyWindowInsetsListener(binding.main) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
         }
     }
 }
