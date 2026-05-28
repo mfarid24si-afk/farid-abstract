@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://android.com"
+    xmlns:app2="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#FFFFFF">
+
+    <!-- Judul Halaman -->
+
+    <!-- Sub-judul / Label -->
+
+    <!-- Kolom Input Email -->
+
+    <!-- Tombol Lanjutkan -->
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:paddingHorizontal="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Register with Gmail"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app2:layout_constraintEnd_toEndOf="parent"
+        app2:layout_constraintHorizontal_bias="0.019"
+        app2:layout_constraintStart_toStartOf="parent"
+        app2:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="40dp"
+        android:layout_marginTop="24dp"
+        android:text="Masukkan Alamat Email Gmail Anda"
+        android:textColor="#9E9E9E"
+        app2:layout_constraintEnd_toEndOf="parent"
+        app2:layout_constraintHorizontal_bias="0.021"
+        app2:layout_constraintStart_toStartOf="parent"
+        app2:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+    <EditText
+        android:id="@+id/etGmailInput"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:paddingHorizontal="40dp"
+        android:layout_marginTop="64dp"
+        android:background="@android:drawable/editbox_background"
+        android:backgroundTint="#F4F7FF"
+        android:hint="contoh@gmail.com"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        app2:layout_constraintEnd_toEndOf="parent"
+        app2:layout_constraintHorizontal_bias="0.0"
+        app2:layout_constraintStart_toStartOf="parent"
+        app2:layout_constraintTop_toBottomOf="@+id/tvLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvLabel" />
+
+    <Button
+        android:id="@+id/btnSubmitEmail"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:paddingHorizontal="40dp"
+        android:layout_marginTop="96dp"
+        android:backgroundTint="#7F00FF"
+        android:text="Lanjutkan"
+        android:textColor="#FFFFFF"
+        app2:layout_constraintEnd_toEndOf="parent"
+        app2:layout_constraintHorizontal_bias="0.0"
+        app2:layout_constraintStart_toStartOf="parent"
+        app2:layout_constraintTop_toBottomOf="@+id/etGmailInput"
+        app:cornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etGmailInput" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

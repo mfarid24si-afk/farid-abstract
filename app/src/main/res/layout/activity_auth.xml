@@ -20,11 +20,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- Teks Selamat Datang (Gaya Screenshot) -->
+    <!-- Teks Selamat Datang -->
     <TextView
         android:id="@+id/titleWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="40dp"
         android:layout_marginTop="24dp"
         android:text="Hi, Welcome Back! 👋"
         android:textColor="#000000"
@@ -37,6 +38,7 @@
         android:id="@+id/subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="40dp"
         android:text="Hello again, you've been missed!"
         android:textColor="#9E9E9E"
         android:textSize="14sp"
@@ -48,6 +50,7 @@
         android:id="@+id/labelEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="40dp"
         android:layout_marginTop="32dp"
         android:text="Email"
         android:textColor="#7F00FF"
@@ -57,14 +60,15 @@
 
     <EditText
         android:id="@+id/inputEmail"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_width="309dp"
+        android:layout_height="49dp"
         android:layout_marginTop="8dp"
         android:background="@android:drawable/editbox_background"
         android:backgroundTint="#F4F7FF"
         android:hint="Enter your email"
         android:inputType="textEmailAddress"
         android:padding="12dp"
+        android:paddingHorizontal="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/labelEmail" />
@@ -74,6 +78,7 @@
         android:id="@+id/labelPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="40dp"
         android:layout_marginTop="16dp"
         android:text="Password"
         android:textColor="#7F00FF"
@@ -83,37 +88,37 @@
 
     <EditText
         android:id="@+id/inputPassword"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
+        android:layout_width="309dp"
+        android:layout_height="49dp"
         android:layout_marginTop="8dp"
         android:background="@android:drawable/editbox_background"
         android:backgroundTint="#F4F7FF"
         android:hint="Please Enter Your Password"
         android:inputType="textPassword"
         android:padding="12dp"
+        android:paddingHorizontal="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/labelPassword" />
 
-    <!-- Tombol Login (Warna Ungu dari Kode Asli) -->
-
-    <!-- Variasi Or With -->
-
+    <!-- Tombol Login -->
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginTop="56dp"
+        android:layout_width="207dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="#7F00FF"
+        android:paddingHorizontal="40dp"
         android:text="Login"
         android:textAllCaps="false"
         android:textSize="16sp"
         app:cornerRadius="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.544"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
 
+    <!-- Variasi Or With -->
     <TextView
         android:id="@+id/tvOr"
         android:layout_width="wrap_content"
@@ -126,6 +131,7 @@
         app:layout_constraintTop_toBottomOf="@id/btnLogin" />
 
     <LinearLayout
+        android:id="@+id/layoutSocialLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -170,14 +176,32 @@
 
     </LinearLayout>
 
-
-    <TextView
+    <!-- Struktur Navigasi Register / Sign Up di Bagian Bawah -->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="Don't have an account? Sign Up"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvAccountPrompt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don't have an account? "
+            android:textColor="#9E9E9E" />
+
+        <TextView
+            android:id="@+id/btnRegisterGmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Up"
+            android:textColor="#7F00FF"
+            android:textStyle="bold"
+            android:clickable="true"
+            android:focusable="true" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
