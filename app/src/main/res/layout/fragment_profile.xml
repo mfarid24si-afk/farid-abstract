@@ -1,47 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app2="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://android.com"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:background="#F8F9FA"
-    android:gravity="center"
+    android:background="#F4F6F9"
+    android:fillViewport="true"
     tools:context=".BinaDesa.ProfileFragment">
 
-    <!-- WADAH FOTO PENGEMBANG -->
-    <ImageView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginBottom="20dp"
-        android:src="@android:drawable/ic_menu_gallery"
-        android:contentDescription="Foto Pengembang" />
-
-    <!-- NAMA PENGEMBANG -->
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Muhammad Farid"
-        android:textColor="#000000"
-        android:textSize="22sp"
-        android:textStyle="bold" />
+        android:paddingBottom="32dp">
 
-    <!-- NOMOR INDUK MAHASISWA (NIM) -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="NIM: 2457301079"
-        android:textColor="#9E9E9E"
-        android:textSize="16sp" />
+        <!-- 1. BACKGROUND HEADER GRADASI UNGU -->
+        <View
+            android:id="@+id/headerBackground"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/gradient_profile_header"
+            app2:layout_constraintTop_toTopOf="parent"
+            app2:layout_constraintStart_toStartOf="parent"
+            app2:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- INSTITUSI KAMPUS -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Mahasiswa Sistem Informasi PCR"
-        android:textColor="#666666"
-        android:textSize="14sp" />
+        <!-- 2. BINGKAI FOTO PROFIL MELAYANG (DIKUNCI DI TENGAH) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardProfileImage"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="120dp"
+            app2:cardCornerRadius="60dp"
+            app2:cardElevation="6dp"
+            app2:strokeColor="#FFFFFF"
+            app2:strokeWidth="4dp"
+            app2:layout_constraintTop_toTopOf="parent"
+            app2:layout_constraintStart_toStartOf="parent"
+            app2:layout_constraintEnd_toEndOf="parent">
 
-</LinearLayout>
+            <ImageView
+                android:id="@+id/imgProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/developer"
+                android:contentDescription="Foto Pengembang" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 3. NAMA UTAMA (DIKUNCI DI BAWAH FOTO FOTO) -->
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Muhammad Farid"
+            android:textColor="#222222"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app2:layout_constraintTop_toBottomOf="@id/cardProfileImage"
+            app2:layout_constraintStart_toStartOf="parent"
+            app2:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- STATUS / ROLE (DIKUNCI DI BAWAH NAMA) -->
+        <TextView
+            android:id="@+id/tvRole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Android Developer"
+            android:textColor="#A15BE7"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app2:layout_constraintTop_toBottomOf="@id/tvName"
+            app2:layout_constraintStart_toStartOf="parent"
+            app2:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- 4. KARTU DETAIL INFORMASI (DIKUNCI DI BAWAH ROLE) -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            app2:cardBackgroundColor="#FFFFFF"
+            app2:cardCornerRadius="16dp"
+            app2:cardElevation="3dp"
+            app2:strokeWidth="0dp"
+            app2:layout_constraintTop_toBottomOf="@id/tvRole"
+            app2:layout_constraintStart_toStartOf="parent"
+            app2:layout_constraintEnd_toEndOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <!-- BARIS NIM -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="12dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_info_details"
+                        app2:tint="#A15BE7"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nomor Induk Mahasiswa"
+                            android:textColor="#888888"
+                            android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/tvNim"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2457301079"
+                            android:textColor="#222222"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EEEEEE" />
+
+                <!-- BARIS PRODI -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="12dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_sort_by_size"
+                        app2:tint="#A15BE7"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Program Studi"
+                            android:textColor="#888888"
+                            android:textSize="12sp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Sistem Informasi"
+                            android:textColor="#222222"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#EEEEEE" />
+
+                <!-- BARIS KAMPUS -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:paddingVertical="12dp">
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@android:drawable/ic_menu_myplaces"
+                        app2:tint="#A15BE7"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="16dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Institusi"
+                            android:textColor="#888888"
+                            android:textSize="12sp" />
+                        <TextView
+                            android:id="@+id/tvInstitution"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Politeknik Caltex Riau"
+                            android:textColor="#222222"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -1,43 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://android.com"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
     android:background="#F8F9FA"
-    android:gravity="center_horizontal"
     tools:context=".BinaDesa.AboutFragment">
 
-    <!-- JUDUL TOPIK BINA DESA -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"
-        android:text="Peminjaman Fasilitas Desa"
-        android:textColor="#3F3D56"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <!-- DEFINISI TOPIK -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="Bina Desa merupakan gerakan pengabdian masyarakat untuk memodernisasi tata kelola administrasi pedesaan. Aplikasi ini berfokus pada efisiensi peminjaman fasilitas bersama milik desa secara digital."
-        android:textColor="#666666"
-        android:textSize="16sp"
-        android:lineSpacingMultiplier="1.2" />
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
 
-    <!-- DAFTAR FITUR UTAMA -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Fitur Utama Aplikasi:\n1. Otentikasi Sesi (SharedPreferences)\n2. Portal Integrasi Web Terpusat (WebView)\n3. Monitoring Real-time Aset Desa"
-        android:textColor="#7F00FF"
-        android:textSize="14sp"
-        android:textStyle="italic"
-        android:lineSpacingMultiplier="1.3" />
+        <!-- JUDUL TOPIK BINA DESA -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="Peminjaman Fasilitas Desa"
+            android:textColor="#3F3D56"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-</LinearLayout>
+        <!-- DEFINISI TOPIK -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:text="Bina Desa merupakan gerakan pengabdian masyarakat untuk memodernisasi tata kelola administrasi pedesaan. Aplikasi ini berfokus pada efisiensi peminjaman fasilitas bersama milik desa secara digital."
+            android:textColor="#666666"
+            android:textSize="16sp"
+            android:lineSpacingMultiplier="1.2" />
+
+        <!-- FITUR UTAMA DENGAN CHIP & CHIPGROUP -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fitur Utama Aplikasi:"
+            android:textColor="#3F3D56"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- SUDAH DITAMBAHKAN ID SEPERTI DI KOTLIN -->
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupFilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:chipSpacingHorizontal="8dp"
+            app:singleSelection="true"> <!-- TAMBAHKAN INI -->
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAuth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Otentikasi Sesi (SharedPref)"
+                style="@style/Widget.MaterialComponents.Chip.Filter"/> <!-- GANTI JADI FILTER -->
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipWebView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Portal Web Terpusat (WebView)"
+                style="@style/Widget.MaterialComponents.Chip.Filter"/> <!-- GANTI JADI FILTER -->
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipMonitoring"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Monitoring Aset Real-time"
+                style="@style/Widget.MaterialComponents.Chip.Filter"/> <!-- GANTI JADI FILTER -->
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- STATISTIK DESA MENGGUNAKAN GRIDLAYOUT -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Statistik Fasilitas Desa:"
+            android:textColor="#3F3D56"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="1"
+            android:layout_marginBottom="24dp">
+
+            <!-- Kotak Kiri -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginEnd="4dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="15"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="#7F00FF"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Total Gedung/Aset"
+                        android:textSize="12sp"
+                        android:textColor="#666666"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Kotak Kanan -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_marginStart="4dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="2dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="center">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="98%"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="#00B0FF"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kepuasan Warga"
+                        android:textSize="12sp"
+                        android:textColor="#666666"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </GridLayout>
+
+        <!-- FORM KRITIK & SARAN -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hubungi Pengelola Desa:"
+            android:textColor="#3F3D56"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tulis saran atau keluhan Anda di sini"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_marginBottom="16dp">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:lines="3" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnKirimSaran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kirim Masukan"
+            android:textColor="#FFFFFF"
+            app:backgroundTint="#7F00FF"
+            app:cornerRadius="8dp" />
+
+    </LinearLayout>
+</ScrollView>

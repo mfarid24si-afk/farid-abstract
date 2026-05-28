@@ -10,6 +10,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.farid_abstract.AuthActivity
+import com.example.farid_abstract.BinaDesa.Message.MessageFragment
 import com.example.farid_abstract.R
 import com.example.farid_abstract.databinding.ActivityWebViewBinding
 
@@ -53,6 +54,10 @@ class WebViewActivity : AppCompatActivity() {
                 R.id.nav_profile -> {
                     supportActionBar?.title = "Developer Profile"
                     selectedFragment = ProfileFragment()
+                }
+                R.id.nav_message -> {
+                    supportActionBar?.title = "Setting"
+                    selectedFragment = MessageFragment()
                 }
             }
             if (selectedFragment != null) {

@@ -4,6 +4,8 @@ import com.example.farid_abstract.Tugas_p4.LoginActivity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.farid_abstract.BinaDesa.HomeFragment
+import com.example.farid_abstract.BinaDesa.WebViewActivity
 import com.example.farid_abstract.Customer.Custom1Activity
 import com.example.farid_abstract.Customer.Custom2Activity
 import com.example.farid_abstract.databinding.ActivityMainBinding
@@ -25,6 +27,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, RumusActivity::class.java)
             intent.putExtra("judul", "Rumus Bangun Ruang")
             intent.putExtra("deskripsi", "Halaman perhitungan bangun ruang")
+            startActivity(intent)
+        }
+        binding.btnUtama.setOnClickListener {
+            val intent = Intent(this, WebViewActivity::class.java)
             startActivity(intent)
         }
 
@@ -52,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                 .setPositiveButton("Ya") { dialog, _ ->
                     dialog.dismiss()
 
-                    val intent = Intent(this, LoginActivity::class.java)
+                    val intent = Intent(this, AuthActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                 }
