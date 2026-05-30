@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.farid_abstract.AuthActivity
 import com.example.farid_abstract.BinaDesa.Message.MessageFragment
+import com.example.farid_abstract.BinaDesa.Profile.ProfileFragment
 import com.example.farid_abstract.R
 import com.example.farid_abstract.databinding.ActivityWebViewBinding
 
@@ -44,8 +45,12 @@ class WebViewActivity : AppCompatActivity() {
             var selectedFragment: Fragment? = null
             when (item.itemId) {
                 R.id.nav_home -> {
-                    supportActionBar?.title = "Portal Bina Desa"
+                    supportActionBar?.title = "Home Bina Desa"
                     selectedFragment = HomeFragment()
+                }
+                R.id.nav_web -> {
+                    supportActionBar?.title = "Portal Bina Desa"
+                    selectedFragment = WebFragment()
                 }
                 R.id.nav_about -> {
                     supportActionBar?.title = "About Bina Desa"
@@ -56,7 +61,7 @@ class WebViewActivity : AppCompatActivity() {
                     selectedFragment = ProfileFragment()
                 }
                 R.id.nav_message -> {
-                    supportActionBar?.title = "Setting"
+                    supportActionBar?.title = "Setting Bina Desa"
                     selectedFragment = MessageFragment()
                 }
             }

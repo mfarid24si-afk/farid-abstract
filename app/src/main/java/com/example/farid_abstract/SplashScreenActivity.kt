@@ -35,7 +35,7 @@ class SplashScreenActivity : AppCompatActivity() {
 
             if (isLogin) {
                 // Jika TRUE (sudah login) -> ke Main / WebViewActivity
-                startActivity(Intent(this@SplashScreenActivity, MainActivity::class.java))
+                startActivity(Intent(this@SplashScreenActivity, WebViewActivity::class.java))
             } else {
                 // Jika FALSE (belum login) -> ke AuthActivity
                 startActivity(Intent(this@SplashScreenActivity, AuthActivity::class.java))

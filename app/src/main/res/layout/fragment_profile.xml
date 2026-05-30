@@ -1,213 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<!-- FONDASI UTAMA: Menggunakan ConstraintLayout Murni Dengan Izin Resmi -->
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://android.com"
     xmlns:app2="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://android.com"
+    xmlns:tools2="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F4F6F9"
-    android:fillViewport="true"
-    tools:context=".BinaDesa.ProfileFragment">
+    android:background="#FFFFFF"
+    tools:context=".BinaDesa.Profile.ProfileFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- 1. BACKGROUND HEADER GRADASI UNGU (Dibuat Tipis Gaya Instagram) -->
+
+    <!-- 2. BINGKAI FOTO PROFIL BULAT (Diposisikan di Kiri Atas Halaman) -->
+
+    <View
+        android:id="@+id/headerBackground"
+        android:layout_width="413dp"
+        android:layout_height="109dp"
+        android:background="@drawable/gradient_profile_header"
+        app2:layout_constraintEnd_toEndOf="parent"
+        app2:layout_constraintHorizontal_bias="0.0"
+        app2:layout_constraintStart_toStartOf="parent"
+        app2:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardProfileImage"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="50dp"
+        app:cardCornerRadius="45dp"
+        app:cardElevation="4dp"
+        app:strokeColor="#FFFFFF"
+        app:strokeWidth="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="Foto Pengembang"
+            android:scaleType="centerCrop"
+            android:src="@drawable/developer" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- 3. NAMA UTAMA MAHASISWA (Dikunci Tepat di Sebelah Kanan Foto Profil) -->
+
+    <!-- STATUS WORK / ROLE (Dikunci di Bawah Nama Utama) -->
+
+    <!-- INSTITUSI KAMPUS (Dikunci di Bawah Status Role) -->
+
+    <!-- 4. PANEL INFORMASI HORIZONTAL (NIM & PRODI Ringkas Bergaya Feed) -->
+
+    <!-- 5. TABLAYOUT: Dikunci Kokoh Tepat di Bawah Panel Horizontal -->
+
+    <!-- 6. WADAH HALAMAN GESER VIEWPAGER2: Area Sangat Luas Menghabiskan Sisa Layar -->
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="202dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="24dp"
+        android:text="Muhammad Farid"
+        android:textColor="#222222"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app2:layout_constraintEnd_toEndOf="parent"
+        app2:layout_constraintHorizontal_bias="0.497"
+        app2:layout_constraintStart_toStartOf="parent"
+        app2:layout_constraintTop_toTopOf="@+id/headerBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/cardProfileImage"
+        app:layout_constraintTop_toBottomOf="@id/headerBackground" />
+
+    <TextView
+        android:id="@+id/tvRole"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Android Developer"
+        android:textColor="#A15BE7"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app2:layout_constraintEnd_toEndOf="parent"
+        app2:layout_constraintHorizontal_bias="0.498"
+        app2:layout_constraintStart_toStartOf="parent"
+        app2:layout_constraintTop_toBottomOf="@+id/tvName"
+        app:layout_constraintStart_toStartOf="@id/tvName"
+        app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+    <LinearLayout
+        android:id="@+id/layoutInfoHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="32dp">
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginTop="24dp"
+        android:background="#F8F9FA"
+        android:orientation="horizontal"
+        android:paddingVertical="12dp"
+        android:weightSum="2"
+        app2:layout_constraintEnd_toEndOf="parent"
+        app2:layout_constraintHorizontal_bias="0.333"
+        app2:layout_constraintStart_toStartOf="parent"
+        app2:layout_constraintTop_toBottomOf="@+id/headerBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardProfileImage">
 
-        <!-- 1. BACKGROUND HEADER GRADASI UNGU -->
-        <View
-            android:id="@+id/headerBackground"
-            android:layout_width="match_parent"
-            android:layout_height="180dp"
-            android:background="@drawable/gradient_profile_header"
-            app2:layout_constraintTop_toTopOf="parent"
-            app2:layout_constraintStart_toStartOf="parent"
-            app2:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- 2. BINGKAI FOTO PROFIL MELAYANG (DIKUNCI DI TENGAH) -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardProfileImage"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_marginTop="120dp"
-            app2:cardCornerRadius="60dp"
-            app2:cardElevation="6dp"
-            app2:strokeColor="#FFFFFF"
-            app2:strokeWidth="4dp"
-            app2:layout_constraintTop_toTopOf="parent"
-            app2:layout_constraintStart_toStartOf="parent"
-            app2:layout_constraintEnd_toEndOf="parent">
-
-            <ImageView
-                android:id="@+id/imgProfile"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/developer"
-                android:contentDescription="Foto Pengembang" />
-        </com.google.android.material.card.MaterialCardView>
-
-        <!-- 3. NAMA UTAMA (DIKUNCI DI BAWAH FOTO FOTO) -->
-        <TextView
-            android:id="@+id/tvName"
-            android:layout_width="wrap_content"
+        <!-- BLOK PENAMPIL NIM -->
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Muhammad Farid"
-            android:textColor="#222222"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app2:layout_constraintTop_toBottomOf="@id/cardProfileImage"
-            app2:layout_constraintStart_toStartOf="parent"
-            app2:layout_constraintEnd_toEndOf="parent" />
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
 
-        <!-- STATUS / ROLE (DIKUNCI DI BAWAH NAMA) -->
-        <TextView
-            android:id="@+id/tvRole"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Android Developer"
-            android:textColor="#A15BE7"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            app2:layout_constraintTop_toBottomOf="@id/tvName"
-            app2:layout_constraintStart_toStartOf="parent"
-            app2:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- 4. KARTU DETAIL INFORMASI (DIKUNCI DI BAWAH ROLE) -->
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardDetails"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="24dp"
-            app2:cardBackgroundColor="#FFFFFF"
-            app2:cardCornerRadius="16dp"
-            app2:cardElevation="3dp"
-            app2:strokeWidth="0dp"
-            app2:layout_constraintTop_toBottomOf="@id/tvRole"
-            app2:layout_constraintStart_toStartOf="parent"
-            app2:layout_constraintEnd_toEndOf="parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="20dp">
+                android:text="2457301079"
+                android:textColor="#222222"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-                <!-- BARIS NIM -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:paddingVertical="12dp">
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@android:drawable/ic_menu_info_details"
-                        app2:tint="#A15BE7"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="16dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Nomor Induk Mahasiswa"
-                            android:textColor="#888888"
-                            android:textSize="12sp" />
-                        <TextView
-                            android:id="@+id/tvNim"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="2457301079"
-                            android:textColor="#222222"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NIM"
+                android:textColor="#888888"
+                android:textSize="12sp" />
+        </LinearLayout>
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#EEEEEE" />
+        <!-- SEPARATOR / GARIS VERTIKAL TENGAH -->
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#E0E0E0" />
 
-                <!-- BARIS PRODI -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:paddingVertical="12dp">
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@android:drawable/ic_menu_sort_by_size"
-                        app2:tint="#A15BE7"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="16dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Program Studi"
-                            android:textColor="#888888"
-                            android:textSize="12sp" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Sistem Informasi"
-                            android:textColor="#222222"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
+        <!-- BLOK PENAMPIL PROGRAM STUDI -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#EEEEEE" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sistem Informasi"
+                android:textColor="#222222"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-                <!-- BARIS KAMPUS -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
-                    android:paddingVertical="12dp">
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@android:drawable/ic_menu_myplaces"
-                        app2:tint="#A15BE7"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_marginStart="16dp">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Institusi"
-                            android:textColor="#888888"
-                            android:textSize="12sp" />
-                        <TextView
-                            android:id="@+id/tvInstitution"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Politeknik Caltex Riau"
-                            android:textColor="#222222"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
-                </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Program Studi"
+                android:textColor="#888888"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
 
-            </LinearLayout>
-        </com.google.android.material.card.MaterialCardView>
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayoutProfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
+        app2:layout_constraintEnd_toEndOf="parent"
+        app2:layout_constraintHorizontal_bias="1.0"
+        app2:layout_constraintStart_toStartOf="parent"
+        app2:layout_constraintTop_toBottomOf="@+id/layoutInfoHorizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutInfoHorizontal"
+        app:tabIndicatorColor="#A15BE7"
+        app:tabSelectedTextColor="#A15BE7"
+        app:tabTextColor="#757575" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerProfile"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app2:layout_constraintEnd_toEndOf="parent"
+        app2:layout_constraintHorizontal_bias="0.0"
+        app2:layout_constraintStart_toStartOf="parent"
+        app2:layout_constraintTop_toBottomOf="@+id/tabLayoutProfile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tabLayoutProfile" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

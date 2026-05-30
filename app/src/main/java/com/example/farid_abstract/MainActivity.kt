@@ -29,10 +29,6 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra("deskripsi", "Halaman perhitungan bangun ruang")
             startActivity(intent)
         }
-        binding.btnUtama.setOnClickListener {
-            val intent = Intent(this, WebViewActivity::class.java)
-            startActivity(intent)
-        }
 
         // tombol custom 1
         binding.btnCustom1.setOnClickListener {
