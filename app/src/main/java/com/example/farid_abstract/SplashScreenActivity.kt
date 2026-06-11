@@ -27,18 +27,29 @@ class SplashScreenActivity : AppCompatActivity() {
         lifecycleScope.launch {
             delay(2000)
 
-            // 1. UBAH NAMA DARI "user_pref" MENJADI "UserSession" AGAR SINKRON
-            val sharedPref = getSharedPreferences("UserSession", MODE_PRIVATE)
+            // Cek apakah onboarding sudah pernah ditampilkan
+            val onBoardingPref = getSharedPreferences(
+                com.example.farid_abstract.onboarding.OnBoardingActivity.PREF_NAME,
+                MODE_PRIVATE
+            )
+            val isOnBoardingDone = onBoardingPref.getBoolean(
+                com.example.farid_abstract.onboarding.OnBoardingActivity.KEY_ONBOARDING_DONE,
+                false
+            )
 
-            // Default-nya harus false jika tidak ditemukan
-            val isLogin = sharedPref.getBoolean("isLogin", false)
-
-            if (isLogin) {
-                // Jika TRUE (sudah login) -> ke Main / WebViewActivity
-                startActivity(Intent(this@SplashScreenActivity, WebViewActivity::class.java))
+            if (isOnBoardingDone) { //kalo baru janlup tambahin ! di kondidi if nya
+                // Pertama kali install → tampilkan onboarding
+                startActivity(Intent(this@SplashScreenActivity,
+                    com.example.farid_abstract.onboarding.OnBoardingActivity::class.java))
             } else {
-                // Jika FALSE (belum login) -> ke AuthActivity
-                startActivity(Intent(this@SplashScreenActivity, AuthActivity::class.java))
+                // Sudah pernah onboarding → cek status login seperti biasa
+                val sessionPref = getSharedPreferences("UserSession", MODE_PRIVATE)
+                val isLogin = sessionPref.getBoolean("isLogin", false)
+                if (isLogin) {
+                    startActivity(Intent(this@SplashScreenActivity, WebViewActivity::class.java))
+                } else {
+                    startActivity(Intent(this@SplashScreenActivity, AuthActivity::class.java))
+                }
             }
             finish()
         }
